@@ -1,0 +1,64 @@
+<div class="row">
+  <h2 *ngIf="isLoading">Chargement en cours</h2>
+  <div class="col-2"></div>
+  <div class="col-4">
+    <h1 class="h2 mb-4">Vue d'ensemble</h1>
+  </div>
+  <div class="col-6">
+   <!-- <app-date></app-date>-->
+  </div>
+  <div class="col">
+    <app-numbers
+      title="Total des ventes"
+      [dataCard]="data.totalSales"
+      symbol="€"
+    ></app-numbers>
+  </div>
+  <div class="col">
+    <app-numbers
+      title="Nombre de produits vendus"
+      [dataCard]="soldProducts"
+    ></app-numbers>
+  </div>
+  <div class="col">
+    <app-numbers
+      title="Nombre de commandes"
+      [dataCard]="data.totalOrders"
+    ></app-numbers>
+  </div>
+  <div class="col">
+    <app-numbers
+      title="Panier Moyen"
+      [dataCard]="data.avgCart"
+      symbol="€"
+    ></app-numbers>
+  </div>
+
+
+  <div class="col-12">
+    <app-linechart
+      lineOne="Création paniers"
+      lineTwo="Visites"
+      [lineOneData]="data.createdCarts"
+      [lineTwoData]="data.visits"
+      title="Taux de conversion de panier"
+      [percentage]="percentageOne"
+    ></app-linechart>
+  </div>
+
+  <div class="col-lg-4 col-12">
+    <app-piechart
+      [existingClients]="data.existingClient"
+      [newClients]="data.newClient"
+    ></app-piechart>
+    <app-numbers
+      title="Nouveaux clients"
+      [dataCard]="data.newClient"
+    ></app-numbers>
+  </div>
+  <div class="col-lg-8 col-12">
+    <app-sumup-table [data]="data"></app-sumup-table>
+  </div>
+</div>
+
+

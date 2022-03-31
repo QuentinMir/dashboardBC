@@ -1,0 +1,17 @@
+<table class="table my-4" datatable [dtOptions]="dtOptions">
+  <thead>
+  <tr>
+    <th scope="col">Produit</th>
+    <th scope="col">Nombre d'unités</th>
+    <th scope="col">Catégorie</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let p of productNames; index as i">
+    <td>{{ productNames[i] }}</td>
+    <td>{{ nbOfUnits[i] }}</td>
+    <td>{{ categoryNames[i] }}</td>
+  </tr>
+  </tbody>
+</table>
+
